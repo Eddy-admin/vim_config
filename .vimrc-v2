@@ -1,0 +1,25 @@
+" Activer vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Plugin pour l'autocomplétion avancée
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" Activer la numérotation des lignes
+set number
+
+" Configuration de base pour coc.nvim
+set tabstop=4       " Taille de la tabulation
+set shiftwidth=4    " Taille du retrait automatique
+" set expandtab        Utiliser des espaces au lieu des tabulations
+set encoding=utf-8  " Encodage UTF-8
+set completeopt=menuone,noinsert,noselect " Options d'autocomplétion
+
+" Remap pour appeler CocAction (par exemple pour corriger des erreurs)
+nmap <silent> gd <Plug>(coc-definition)  " Aller à la définition
+nmap <silent> gr <Plug>(coc-references)  " Voir les références
+nmap <silent> <leader>rn <Plug>(coc-rename) " Renommer symboles
+
+" Commande pour installer des extensions coc
+command! -nargs=* CocInstall call coc#util#install_extensions(<f-args>)
